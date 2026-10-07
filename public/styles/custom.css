@@ -220,3 +220,361 @@ body#body.login #backgroundImage {
 #logincell input[type=button]:disabled {
     opacity: 0.55;
 }
+
+/* ---------------------------------------------------------------------------
+ * Modern UI (default3) dashboard — Figma "Dashboard A · Cobalt Signal"
+ * ------------------------------------------------------------------------- */
+
+/* Sidebar: active item is a cobalt pill instead of a white tab */
+#page_leftbar .nav-link {
+    margin: 2px 10px;
+    border-radius: 8px;
+    color: #C7D6ED !important;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+#page_leftbar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF !important;
+}
+
+#page_leftbar nav .lbbuttonsel,
+#page_leftbar nav .lbbuttonsel2 {
+    width: auto;
+    border-radius: 8px;
+    opacity: 1;
+    background-color: var(--mb-primary);
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(47, 107, 255, 0.35);
+}
+
+/* Content area */
+body:not(.night) #column_l,
+body:not(.night) #column_l_bottomgap {
+    background-color: var(--mb-surface);
+}
+
+#column_l {
+    font-family: var(--mb-font);
+}
+
+body:not(.night) #p1title > .fs-4,
+body:not(.night) #column_l h3,
+body:not(.night) #column_l .fs-4 {
+    color: var(--mb-text);
+}
+
+#p1title > .fs-4 {
+    font-size: 24px !important;
+    letter-spacing: -0.01em;
+}
+
+/* Device toolbar */
+#devListToolbarSpan {
+    gap: 6px;
+    margin: 8px 0 12px;
+    padding: 8px !important;
+    border-radius: 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--mb-border);
+}
+
+.night #devListToolbarSpan {
+    background: #10233F;
+    border-color: #1E3A63;
+}
+
+#column_l .btn-secondary,
+#devListToolbarSpan .btn-secondary {
+    --bs-btn-color: var(--mb-text);
+    --bs-btn-bg: #FFFFFF;
+    --bs-btn-border-color: var(--mb-border);
+    --bs-btn-hover-color: var(--mb-text);
+    --bs-btn-hover-bg: #EEF3FF;
+    --bs-btn-hover-border-color: #B9C8E0;
+    --bs-btn-active-color: var(--mb-text);
+    --bs-btn-active-bg: #E1EAFF;
+    --bs-btn-active-border-color: #B9C8E0;
+    --bs-btn-disabled-color: var(--mb-text-muted);
+    --bs-btn-disabled-bg: #FFFFFF;
+    --bs-btn-disabled-border-color: var(--mb-border);
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.night #column_l .btn-secondary,
+.night #devListToolbarSpan .btn-secondary {
+    --bs-btn-color: #E2E8F0;
+    --bs-btn-bg: #12305E;
+    --bs-btn-border-color: #1E3A63;
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: #1A3F78;
+    --bs-btn-hover-border-color: #2A4F86;
+    --bs-btn-active-bg: #1A3F78;
+    --bs-btn-disabled-color: #8EA3C2;
+    --bs-btn-disabled-bg: #12305E;
+    --bs-btn-disabled-border-color: #1E3A63;
+}
+
+#column_l .btn-primary,
+#column_l .btn-secondary {
+    border-radius: 8px;
+}
+
+#devListToolbarSpan .form-control,
+#devListToolbarSpan .form-select {
+    border-radius: 8px;
+    border-color: var(--mb-border);
+}
+
+#devListToolbarSpan .form-control:focus,
+#devListToolbarSpan .form-select:focus {
+    border-color: var(--mb-primary);
+    box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.2);
+}
+
+#devListToolbarViewIcons [role=button] {
+    color: var(--mb-text-muted);
+    border-radius: 6px;
+}
+
+#devListToolbarViewIcons [role=button]:hover {
+    color: var(--mb-primary);
+}
+
+/* Device group header */
+#xdevices .DevSt {
+    padding: 10px 2px 6px !important;
+    margin-bottom: 6px;
+    border-bottom-color: var(--mb-border);
+    font-weight: 600;
+    color: var(--mb-text);
+}
+
+.night #xdevices .DevSt {
+    color: #E2E8F0;
+    border-bottom-color: #1E3A63;
+}
+
+#xdevices .DevSt a {
+    font-weight: 500;
+    font-size: 13px;
+    margin-left: 6px;
+}
+
+#xdevices .devHeaderx {
+    color: var(--mb-text-muted);
+    font-weight: 500;
+    font-size: 12px;
+}
+
+/* Device cards (column view): flat white cards instead of grey gradients */
+#xdevices div[name^="xxdevice"] {
+    padding: 4px 8px 4px 0 !important;
+    height: 64px !important;
+    vertical-align: top;
+}
+
+#xdevices div[name^="xxdevice"] > table {
+    background: #FFFFFF;
+    border: 1px solid var(--mb-border);
+    border-radius: 12px;
+    border-collapse: separate;
+    padding: 0 6px;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+#xdevices div[name^="xxdevice"] > table:hover {
+    border-color: var(--mb-primary);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+.night #xdevices div[name^="xxdevice"] > table {
+    background: #10233F;
+    border-color: #1E3A63;
+}
+
+#xdevices .g1t,
+#xdevices .g2t,
+#xdevices .g1s,
+#xdevices .g2s,
+#xdevices .e2t,
+#xdevices .e2s {
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+#xdevices .g1t,
+#xdevices .g2t {
+    width: 8px;
+}
+
+#xdevices .e1t {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mb-text);
+    margin-bottom: 2px;
+}
+
+#xdevices .e2t > div:not(.e1t) {
+    font-size: 12px;
+    color: var(--mb-text-muted);
+}
+
+.night #xdevices .e1t {
+    color: #F1F5F9;
+}
+
+.night #xdevices .e2t > div:not(.e1t) {
+    color: #8EA3C2;
+}
+
+#column_l .form-check-input:checked {
+    background-color: var(--mb-primary);
+    border-color: var(--mb-primary);
+}
+
+/* Dark mode: deep navy instead of pure black */
+.night #column_l,
+.night #column_l_bottomgap {
+    background-color: #0A1628;
+}
+
+body.night {
+    background-color: #0A1628 !important;
+}
+
+/* Dark theme palette: navy surfaces for every Bootstrap-driven panel */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #0A1628;
+    --bs-body-bg-rgb: 10, 22, 40;
+    --bs-secondary-bg: #10233F;
+    --bs-secondary-bg-rgb: 16, 35, 63;
+    --bs-tertiary-bg: #0E1D35;
+    --bs-tertiary-bg-rgb: 14, 29, 53;
+    --bs-border-color: #1E3A63;
+    --bs-link-color: var(--mb-accent);
+    --bs-link-color-rgb: 34, 211, 238;
+    --bs-link-hover-color: #67E8F9;
+}
+
+body:not(.night) #container {
+    background-color: var(--mb-surface);
+}
+
+.night #container {
+    background-color: #0A1628;
+}
+
+/* Sidebar items fit the 70px rail */
+#page_leftbar .nav-link {
+    width: auto !important;
+    margin: 3px 9px;
+    padding: 10px 0;
+}
+
+#page_leftbar .nav-link > svg,
+#page_leftbar .nav-link > i {
+    margin-right: 0 !important;
+}
+
+/* Footer divider under the device list (inline #DDD border) */
+#xdevices > div[style*="border-top"] {
+    border-top-color: var(--mb-border) !important;
+}
+
+.night #xdevices > div[style*="border-top"] {
+    border-top-color: #1E3A63 !important;
+}
+
+/* Legacy gradient row bars (.g1/.e2/.g2 families) -> flat brand tones */
+.g1, .g2, .g1t, .g2t, .g1s, .g2s {
+    background-image: none !important;
+}
+
+.g1, .g2, .g1t, .g2t, .e2, .e2t {
+    background-color: #E8EEF7;
+}
+
+.g1s, .g2s, .e2s {
+    background-color: #DCE6FF !important;
+}
+
+.night .g1, .night .g2, .night .g1t, .night .g2t, .night .e2, .night .e2t {
+    background-color: #10233F;
+}
+
+.night .g1s, .night .g2s, .night .e2s {
+    background-color: #17325A !important;
+}
+
+#xdevices .g1, #xdevices .g2, #xdevices .e2 {
+    background-color: transparent;
+}
+
+#xdevices tr[name="xxdevice2"]:hover > td {
+    background-color: #EEF3FF;
+}
+
+.night #xdevices tr[name="xxdevice2"]:hover > td {
+    background-color: #10233F;
+}
+
+/* List-view name bars and Bootstrap cards */
+.bar {
+    background-color: #E8EEF7;
+    border-radius: 6px;
+}
+
+.night .bar {
+    background-color: #10233F;
+}
+
+.night .card {
+    background-color: #10233F !important;
+    border-color: #1E3A63;
+}
+
+/* List view (view 2): clean rows instead of grey bars */
+#xdevices .bar18,
+#xdevices .bar18 .style10,
+#xdevices .deviceBarCheckbox,
+#xdevices .deviceBarIcon {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+#xdevices tr[name="xxdevice2"] > td {
+    border-bottom: 1px solid var(--mb-border);
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.night #xdevices tr[name="xxdevice2"] > td {
+    border-bottom-color: #1E3A63;
+}
+
+#xdevices tr[name="xxdevice2"] .style10 {
+    font-weight: 500;
+    color: var(--mb-text);
+}
+
+.night #xdevices tr[name="xxdevice2"] .style10 {
+    color: #E2E8F0;
+}
+
+body:not(.night) #xdevices th {
+    background-color: var(--mb-surface);
+    color: var(--mb-text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.night #xdevices th {
+    color: #8EA3C2;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
