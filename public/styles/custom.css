@@ -1,0 +1,222 @@
+/*
+ * Mesh Byte brand layer. Loaded after style.css / style-bootstrap.css on every
+ * page (see generateCustomCSSTags in webserver.js), so base styles stay
+ * untouched and upstream merges remain simple. Palette tokens come from the
+ * "Mesh Byte — Brand & Design System" Figma file (option A · Cobalt Signal).
+ */
+:root {
+    --mb-ink: #0B1B34;
+    --mb-navy: #12305E;
+    --mb-primary: #2F6BFF;
+    --mb-primary-hover: #1F55E0;
+    --mb-accent: #22D3EE;
+    --mb-surface: #F5F7FB;
+    --mb-border: #D6DEEB;
+    --mb-text: #0F172A;
+    --mb-text-muted: #5B6B82;
+    --mb-success: #10B981;
+    --mb-warning: #F59E0B;
+    --mb-danger: #EF4444;
+    --mb-font: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+
+    --bs-primary: var(--mb-primary);
+    --bs-primary-rgb: 47, 107, 255;
+    --bs-link-color: var(--mb-primary);
+    --bs-link-color-rgb: 47, 107, 255;
+    --bs-link-hover-color: var(--mb-primary-hover);
+}
+
+/* Masthead: logo mark comes from /logo.png (images/logoback.png) */
+#masthead,
+.AgentInviteMasthead {
+    background-color: var(--mb-ink);
+}
+
+#masthead .title,
+#masthead .title2 {
+    color: #FFFFFF;
+    font-family: var(--mb-font);
+    text-shadow: none;
+    letter-spacing: -0.02em;
+}
+
+#masthead .title2 {
+    color: var(--mb-accent);
+    font-weight: 600;
+}
+
+/* Classic UI: leave room for the logo mark */
+#masthead > div > .title,
+#masthead > .title {
+    padding-left: 68px;
+}
+
+/* Modern UI (default3) */
+#masthead .masthead-left {
+    padding-left: 52px;
+}
+
+#masthead .masthead-titles-container .title {
+    padding-left: 0;
+}
+
+/* Navigation */
+#page_leftbar {
+    background: var(--mb-navy);
+    background: linear-gradient(to bottom, var(--mb-navy) 0%, var(--mb-ink) 100%);
+}
+
+nav .lbbuttonsel,
+nav .lbbuttonsel2 {
+    color: var(--mb-navy) !important;
+    box-shadow: inset 3px 0 0 var(--mb-accent);
+}
+
+#footer {
+    background-color: var(--mb-ink);
+}
+
+#dialogHeader,
+#xmapSearchResultsBck {
+    background-color: var(--mb-navy);
+}
+
+.style3x.fullselect,
+.style3sel,
+[data-bs-theme="dark"] .topbar_td.style3x.fullselect {
+    background-color: var(--mb-primary);
+}
+
+a {
+    color: var(--mb-primary);
+}
+
+.night a {
+    color: var(--mb-accent);
+}
+
+/* Bootstrap primary buttons (modern UI) */
+.btn-primary {
+    --bs-btn-bg: var(--mb-primary);
+    --bs-btn-border-color: var(--mb-primary);
+    --bs-btn-hover-bg: var(--mb-primary-hover);
+    --bs-btn-hover-border-color: var(--mb-primary-hover);
+    --bs-btn-active-bg: var(--mb-primary-hover);
+    --bs-btn-active-border-color: var(--mb-primary-hover);
+    --bs-btn-disabled-bg: var(--mb-primary);
+    --bs-btn-disabled-border-color: var(--mb-primary);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--mb-primary);
+    --bs-btn-border-color: var(--mb-primary);
+    --bs-btn-hover-bg: var(--mb-primary);
+    --bs-btn-hover-border-color: var(--mb-primary);
+    --bs-btn-active-bg: var(--mb-primary-hover);
+}
+
+/* Mobile */
+body.is-mobile #ServerSubMenuSpan {
+    background: var(--mb-navy) !important;
+}
+
+body.is-mobile #p51BackButton {
+    background: var(--mb-ink);
+}
+
+/* Gradient backgrounds of the login2/download2/message2/error4042 pages */
+body#body.login,
+body:has(> #centralTable) {
+    background: linear-gradient(to bottom right, var(--mb-navy), var(--mb-ink)) !important;
+}
+
+/* Inline-styled legacy colors in views (mobile mastheads, back buttons, footers) */
+#masthead[style],
+[style*="background-color:#036;"],
+[style*="background-color: #036"] {
+    background-color: var(--mb-ink) !important;
+}
+
+[style*="background-color:#003366"] {
+    background-color: var(--mb-navy) !important;
+}
+
+#footer[style],
+[style*="background-color:#113962"] {
+    background-color: var(--mb-ink) !important;
+}
+
+[style*="background:#113962"] {
+    background: linear-gradient(to bottom, var(--mb-navy) 0%, var(--mb-ink) 100%) !important;
+}
+
+/* Classic UI masthead title: fit the 66px bar with the wider brand font */
+#masthead > .title {
+    font-size: 38px;
+    padding-top: 10px;
+}
+
+/* Login (login2) */
+#logincell > div:has(+ #loginpanel) {
+    color: #FFFFFF !important;
+    font-family: var(--mb-font) !important;
+    text-shadow: none !important;
+    letter-spacing: -0.02em;
+}
+
+#logincell > div:has(+ #loginpanel)::before {
+    content: "";
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    margin-right: 14px;
+    vertical-align: -8px;
+    background: url(../favicon-303x303.png) center / contain no-repeat;
+}
+
+#logincell #backgroundImage,
+body#body.login #backgroundImage {
+    opacity: 0.05 !important;
+}
+
+#loginpanel,
+#createpanel,
+#resetpanel,
+#tokenpanel,
+#resettokenpanel,
+#resetpasswordpanel,
+#checkemailpanel,
+#waitpushpanel {
+    background-color: #FFFFFF !important;
+    color: var(--mb-text);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35) !important;
+}
+
+#logincell input[type=text],
+#logincell input[type=password],
+#logincell input[type=email] {
+    background-color: #FFFFFF !important;
+    border: 1px solid var(--mb-border) !important;
+    border-radius: 8px !important;
+}
+
+#logincell input[type=submit],
+#logincell input[type=button] {
+    background-color: var(--mb-primary) !important;
+    border: 1px solid var(--mb-primary) !important;
+    color: #FFFFFF !important;
+    border-radius: 8px !important;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#logincell input[type=submit]:hover,
+#logincell input[type=button]:hover {
+    background-color: var(--mb-primary-hover) !important;
+}
+
+#logincell input[type=submit]:disabled,
+#logincell input[type=button]:disabled {
+    opacity: 0.55;
+}

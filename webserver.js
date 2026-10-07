@@ -154,6 +154,7 @@ module.exports.CreateWebServer = function (parent, db, args, certificates, doneF
     // Variables
     obj.args = args;
     obj.parent = parent;
+    obj.defaultTitle = 'Mesh Byte'; // Product name used when domain.title is not configured
     obj.filespath = parent.filespath;
     obj.db = db;
     obj.app = obj.express();
@@ -4133,8 +4134,8 @@ module.exports.CreateWebServer = function (parent, db, args, certificates, doneF
         if (domain == null) { parent.debug('web', 'handleManifestRequest: no domain'); res.sendStatus(404); return; }
         parent.debug('web', 'handleManifestRequest()');
         var manifest = {
-            "name": (domain.title != null) ? domain.title : 'MeshCentral',
-            "short_name": (domain.title != null) ? domain.title : 'MeshCentral',
+            "name": (domain.title != null) ? domain.title : obj.defaultTitle,
+            "short_name": (domain.title != null) ? domain.title : obj.defaultTitle,
             "description": "Open source web based, remote computer management.",
             "scope": ".",
             "start_url": "/",
@@ -6086,7 +6087,7 @@ module.exports.CreateWebServer = function (parent, db, args, certificates, doneF
         try {
             const deviceCookie = parent.encodeCookie({ a: 'checkAuth', c: cookie.c, u: cookie.u, n: cookie.n, s: cookie.s });
             var code = Buffer.from(cookie.c, 'base64').toString();
-            var payload = { notification: { title: (domain.title ? domain.title : 'MeshCentral'), body: "Authentication - " + code }, data: { url: '2fa://auth?code=' + cookie.c + '&c=' + deviceCookie } };
+            var payload = { notification: { title: (domain.title ? domain.title : obj.defaultTitle), body: "Authentication - " + code }, data: { url: '2fa://auth?code=' + cookie.c + '&c=' + deviceCookie } };
             var options = { priority: 'High', timeToLive: 60 }; // TTL: 1 minute
             parent.firebase.sendToDevice(user.otpdev, payload, options, function (id, err, errdesc) {
                 if (err == null) {
@@ -10339,13 +10340,13 @@ module.exports.CreateWebServer = function (parent, db, args, certificates, doneF
         if (req.query.minify == '1') { minify = true; } else if (req.query.minify == '0') { minify = false; }
         xargs.min = minify ? '-min' : '';
         xargs.titlehtml = domain.titlehtml;
-        xargs.title = (domain.title != null) ? domain.title : 'MeshCentral';
+        xargs.title = (domain.title != null) ? domain.title : obj.defaultTitle;
         if (
             ((page == 'login2') && (domain.loginpicture == null) && (domain.titlehtml == null)) ||
             ((page != 'login2') && (domain.titlepicture == null) && (domain.titlehtml == null))
         ) {
             if (domain.title == null) {
-                xargs.title1 = 'MeshCentral';
+                xargs.title1 = obj.defaultTitle;
                 xargs.title2 = '';
             } else {
                 xargs.title1 = domain.title;
