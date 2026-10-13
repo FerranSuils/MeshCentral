@@ -57,6 +57,17 @@
 </head>
 <body id="body" onload="if (typeof(startup) !== 'undefined') startup();" class="arg_hide login">
     <div id="backgroundImage" style="position:absolute;left:0;bottom:0;z-index:-1;height:60%;width:100%;opacity:0.1;background-image:url('welcome.png');background-repeat:no-repeat;background-position:left bottom;background-size:contain"></div>
+    <div id="mbHero" aria-hidden="true">
+        <div class="mb-hero-brand"><svg viewBox="0 0 36 36" width="36" height="36"><rect width="36" height="36" rx="10" fill="#1E3A5F"/><path d="M18 9 9.5 25.5M18 9l8.5 16.5M9.5 25.5h17" stroke="#64B5F6" stroke-width="1.6" stroke-linejoin="round" fill="none"/><circle cx="18" cy="9" r="3" fill="#64B5F6"/><circle cx="9.5" cy="25.5" r="3" fill="#4A90D9"/><circle cx="26.5" cy="25.5" r="3" fill="#4A90D9"/></svg><div><b>MeshByte</b><span>by Nordic Byte</span></div></div>
+        <h1>Every device,<br>one control panel.</h1>
+        <p>Remote desktop, terminal, files and live alerts for every machine on your network.</p>
+        <svg class="mb-hero-map" viewBox="0 0 520 340">
+          <defs><symbol id="mbSlab" viewBox="0 0 96 70"><path d="M48 4 92 26 48 48 4 26Z" fill="#2B3440" stroke="#3E4958"/><path d="M4 26 48 48V60L4 38Z" fill="#1A2028"/><path d="M92 26 48 48V60L92 38Z" fill="#12161C"/><path d="M26 22 48 33l22-11" stroke="#4A5668" fill="none" stroke-linecap="round"/></symbol></defs>
+          <g stroke="#64B5F6" stroke-width="1.5" opacity=".75" fill="none"><path d="M260 170 80 270M260 170 450 250M260 170 400 70M260 170 120 90"/></g>
+          <use href="#mbSlab" x="195" y="120" width="130" height="95"/><use href="#mbSlab" x="30" y="235" width="100" height="73"/><use href="#mbSlab" x="400" y="215" width="96" height="70"/><use href="#mbSlab" x="352" y="35" width="86" height="63"/><use href="#mbSlab" x="78" y="58" width="76" height="56"/>
+        </svg>
+        <ul><li><i class="ik ik-monitor"></i>Remote desktop</li><li><i class="ik ik-terminal"></i>Terminal and file manager</li><li><i class="ik ik-bell"></i>Live alerts and topology</li></ul>
+    </div>
     <table id="centralTable" class="container" style="height:100%;z-index:1">
         <tr>
             <td id="logincell">
@@ -64,6 +75,7 @@
                 <img id="loginPicture" />
                 <div style="font-size:46px;font-family:Arial,Helvetica,sans-serif;font-weight:bold;padding-bottom:10px;color:#c8c8c8;text-shadow: 2px 2px 2px #000;">{{{title1}}}<sup style="font-size:20px"> {{{title2}}}</sup></div>
                 <div id=loginpanel style="display:none;box-shadow:1px 1px 4px #000">
+                    <h2 class="mb-card-title">Sign in</h2><p class="mb-card-sub">Access your remote management panel</p>
                     <form id=loginpanelform method=post>
                         <input type=hidden name=action value=login />
                         <div id=message1></div>
