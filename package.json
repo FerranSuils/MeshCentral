@@ -25,7 +25,6 @@
     "*.js",
     "amt",
     "bin",
-    "rdp",
     "views",
     "emails",
     "agents",

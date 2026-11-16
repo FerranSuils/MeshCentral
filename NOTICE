@@ -1,0 +1,18 @@
+MeshByte by Nordic Byte
+Copyright 2026 Nordic Byte LTD
+
+MeshByte is a modified version of MeshCentral 1.2.6
+(https://github.com/Ylianst/MeshCentral), licensed under the Apache License,
+Version 2.0 (see LICENSE). MeshCentral is Copyright Intel Corporation and
+contributors; the original copyright notices in the source files are retained.
+
+Changes made by Nordic Byte LTD (2026):
+- Web interface restyled: public/styles/custom.css, public/scripts/custom.js,
+  views/default3.handlebars, views/login2.handlebars.
+- New brand assets (logo mark, favicons) replacing the MeshCentral logo.
+- Self-hosted fonts (Inter, JetBrains Mono: SIL OFL 1.1) and IconKit icons.
+- Removed the bundled web RDP client (public/mstsc, rdp/), which is GPL-3.0.
+
+"MeshCentral" and its logo are not licensed for use as the name or branding of
+this product. This product is not affiliated with or endorsed by the
+MeshCentral project or Intel Corporation.
