@@ -1,0 +1,59 @@
+/*
+ * MeshByte theme for the Intel AMT view (MeshCommander, served at commander.ashx).
+ * Injected into the iframe by public/scripts/custom.js, so commander*.htm stay untouched.
+ * The parent copies its data-bs-theme (dark|light) onto this document's <html>.
+ */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(../fonts/inter-latin-wght-normal.woff2) format("woff2"); }
+
+html {
+    --c-bg: #0D1117; --c-surface: #151B23; --c-surface-2: #1B222C; --c-elevated: #242C38;
+    --c-border: #2A3340; --c-border-strong: #3A4556;
+    --c-text: #F2F5F9; --c-text-2: #9AA7B6; --c-text-3: #6B7889;
+    --c-accent: #4A90D9; --c-accent-2: #64B5F6; --c-navy: #1E3A5F;
+    --c-danger: #E5484D;
+}
+html[data-bs-theme="light"] {
+    --c-bg: #EEF0F2; --c-surface: #FFFFFF; --c-surface-2: #F5F7F9; --c-elevated: #E6EAEE;
+    --c-border: #D5DBE1; --c-border-strong: #B8C1CC;
+    --c-text: #0D1117; --c-text-2: #4A5766; --c-text-3: #7A8695;
+    --c-accent: #2F74BD; --c-accent-2: #2F74BD;
+}
+
+html body { font-family: "Inter", "Segoe UI", system-ui, sans-serif; font-size: 13px; color: var(--c-text); background: var(--c-bg); }
+td, th { font-size: 13px; }
+h1, h2 { color: var(--c-text); }
+h1 { font-size: 16px; font-weight: 600; margin: 14px 8px 8px; }
+h2 { font-size: 13px; font-weight: 600; }
+a:link, a:visited { color: var(--c-accent-2); }
+a:hover { color: var(--c-text); }
+
+.header { background: var(--c-surface); border-bottom: 1px solid var(--c-border); height: 36px; display: flex; align-items: center; padding: 0 8px; gap: 6px; }
+.progressbar { top: 36px; background: var(--c-accent); }
+.fullcell { top: 38px; }
+.maincell { top: 38px; left: 176px; background: var(--c-bg); padding: 4px 8px; }
+.navbar { top: 38px; width: 176px; background: var(--c-surface); border-right: 1px solid var(--c-border); }
+.nav1 { color: var(--c-text); padding: 6px 12px; font-weight: 600; border-radius: 6px; margin: 2px 6px; }
+.nav2 { color: var(--c-text-2); margin-left: 24px; padding: 3px 8px; border-radius: 6px; }
+.nav1:hover, .nav2:hover { background: var(--c-surface-2); color: var(--c-text); }
+
+.r0 { background: var(--c-surface); }
+.r1 { border-bottom: 1px solid var(--c-border); }
+.log, .log1 { background: var(--c-border); }
+.log tbody tr:nth-child(odd) { background: var(--c-surface-2); }
+.log tbody tr:nth-child(even) { background: var(--c-surface); }
+th { background: var(--c-surface-2); color: var(--c-text-2); font-weight: 600; text-align: left; padding: 6px 8px; }
+th:hover { background: var(--c-elevated); color: var(--c-text); }
+td { color: var(--c-text); }
+
+input[type=button], input[type=submit], button {
+    font: 500 12px "Inter", "Segoe UI", system-ui, sans-serif; color: var(--c-text); background: var(--c-surface-2);
+    border: 1px solid var(--c-border-strong); border-radius: 6px; padding: 5px 12px; cursor: pointer;
+}
+input[type=button]:hover, input[type=submit]:hover, button:hover { background: var(--c-elevated); border-color: var(--c-accent); }
+input[type=button]:disabled, button:disabled { opacity: .45; cursor: default; }
+input[type=text], input[type=password], input[type=number], input[type=search], select, textarea {
+    font: 13px "Inter", "Segoe UI", system-ui, sans-serif; color: var(--c-text); background: var(--c-surface-2);
+    border: 1px solid var(--c-border-strong); border-radius: 6px; padding: 4px 8px;
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--c-accent); outline-offset: 0; }
+hr { border: 0; border-top: 1px solid var(--c-border); }
