@@ -128,3 +128,26 @@
     }
     var tries = 0, timer = setInterval(function () { if (install() || ++tries > 120) { clearInterval(timer); } }, 500);
 })();
+
+/* Intel AMT view: theme the MeshCommander iframe (same origin) without editing commander*.htm. */
+(function () {
+    'use strict';
+    function theme() { return document.documentElement.getAttribute('data-bs-theme') || 'dark'; }
+    function apply(f) {
+        try {
+            var d = f.contentDocument; if (!d || !d.head) return;
+            d.documentElement.setAttribute('data-bs-theme', theme());
+            if (d.getElementById('mb-commander-theme')) return;
+            var l = d.createElement('link'); l.id = 'mb-commander-theme'; l.rel = 'stylesheet'; l.href = '/styles/commander-theme.css';
+            d.head.appendChild(l);
+        } catch (e) { }
+    }
+    function hook() {
+        var f = document.getElementById('p14iframe'); if (!f) return false;
+        f.addEventListener('load', function () { apply(f); });
+        apply(f);
+        new MutationObserver(function () { apply(f); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-bs-theme'] });
+        return true;
+    }
+    var tries = 0, timer = setInterval(function () { if (hook() || ++tries > 120) { clearInterval(timer); } }, 500);
+})();
