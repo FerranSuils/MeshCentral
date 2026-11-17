@@ -663,7 +663,7 @@ module.exports.CreateNordic = function (parent) {
         for (var i in meshIds) {
             const mesh = web().meshes[meshIds[i]];
             if (mesh.links == null) { mesh.links = {}; }
-            const mine = (user.links[mesh._id] != null) && (user.links[mesh._id].nordic === 1);
+            const mine = (user.links[mesh._id] != null) && (user.links[mesh._id].nordic === 1) && (mesh.links[userid] != null) && (mesh.links[userid].nordic === 1); // Edited by hand since then: no longer ours
             var meshChanged = false;
             if (access.admin && (user.links[mesh._id] == null) && (mesh.links[userid] == null)) {
                 user.links[mesh._id] = { rights: MESHRIGHT_ADMIN, nordic: 1 };
