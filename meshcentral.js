@@ -1967,6 +1967,9 @@ function CreateMeshCentralServer(config, args) {
                     // Create MQTT Broker to hook into webserver and mpsserver
                     if ((typeof obj.config.settings.mqtt == 'object') && (typeof obj.config.settings.mqtt.auth == 'object') && (typeof obj.config.settings.mqtt.auth.keyid == 'string') && (typeof obj.config.settings.mqtt.auth.key == 'string')) { obj.mqttbroker = require("./mqttbroker.js").CreateMQTTBroker(obj, obj.db, obj.args); }
 
+                    // MeshByte: Nordic Byte platform integration, only when a "nordic" section is configured (see nordic.js)
+                    try { if (require('./nordic.js').isConfigured(obj.config)) { obj.nordic = require('./nordic.js').CreateNordic(obj); } } catch (ex) { console.log('Nordic Byte integration not loaded: ' + ex); }
+
                     // Start the web server and if needed, the redirection web server.
                     obj.webserver = require('./webserver.js').CreateWebServer(obj, obj.db, obj.args, obj.certificates, obj.StartEx5);
                     if (obj.redirserver != null) { obj.redirserver.hookMainWebServer(obj.certificates); }

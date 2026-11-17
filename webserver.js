@@ -7497,6 +7497,7 @@ module.exports.CreateWebServer = function (parent, db, args, certificates, doneF
                 if ((parent.config.domains[i].dns != null) || (parent.config.domains[i].share != null)) { continue; } // This is a subdomain with a DNS name, no added HTTP bindings needed.
                 var domain = parent.config.domains[i];
                 var url = domain.url;
+                if (parent.nordic != null) { parent.nordic.setupHttpHandlers(obj, url, getDomain); } // MeshByte: Nordic Byte platform integration (see nordic.js)
                 if (typeof domain.rootredirect == 'string') {
                     // Root page redirects the user to a different URL
                     obj.app.get(url, handleRootRedirect);
